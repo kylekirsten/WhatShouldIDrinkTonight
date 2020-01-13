@@ -109,31 +109,31 @@ public class UserController {
 //        return usersService.performSearch(spec, pageable);
 //    }
 	/* EXCEPTION HANDLERS */
-	  @ExceptionHandler({SQLException.class,DataAccessException.class})
-	  public ResponseEntity<String> databaseError() {
-		  return ResponseEntity
-				  .status(500)
-				  .body("Database Error");
-	  }
-	  @ExceptionHandler(HttpClientErrorException.class)
-	  public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
-		  return ResponseEntity
-				  .status(e.getStatusCode())
-				  .body(e.getMessage());
-	  }
-	  
-	  @ExceptionHandler(HttpServerErrorException.class)
-	  public ResponseEntity<String> handleServerError(HttpServerErrorException e) {
-		  return ResponseEntity
-				  .status(e.getStatusCode())
-				  .body(e.getMessage());
-	  }
-	  @ExceptionHandler({NumberFormatException.class, HttpMessageNotReadableException.class,
-		  ConstraintViolationException.class,InvalidDataAccessApiUsageException.class})
-	  public ResponseEntity<String> badRequest(Exception ex) {
-		  System.out.println(ex.getMessage());
-		  return ResponseEntity
-				  .status(400)
-				  .body("Bad Parameters");
-	  }
+//	  @ExceptionHandler({SQLException.class,DataAccessException.class})
+//	  public ResponseEntity<String> databaseError() {
+//		  return ResponseEntity
+//				  .status(500)
+//				  .body("Database Error");
+//	  }
+//	  @ExceptionHandler(HttpClientErrorException.class)
+//	  public ResponseEntity<String> handleClientError(HttpClientErrorException e) {
+//		  return ResponseEntity
+//				  .status(e.getStatusCode())
+//				  .body(e.getMessage());
+//	  }
+//	  
+//	  @ExceptionHandler(HttpServerErrorException.class)
+//	  public ResponseEntity<String> handleServerError(HttpServerErrorException e) {
+//		  return ResponseEntity
+//				  .status(e.getStatusCode())
+//				  .body(e.getMessage());
+//	  }
+//	  @ExceptionHandler({NumberFormatException.class, HttpMessageNotReadableException.class,
+//		  ConstraintViolationException.class,InvalidDataAccessApiUsageException.class})
+//	  public ResponseEntity<String> badRequest(Exception ex) {
+//		  System.out.println(ex.getMessage());
+//		  return ResponseEntity
+//				  .status(400)
+//				  .body("Bad Parameters");
+//	  }
 }

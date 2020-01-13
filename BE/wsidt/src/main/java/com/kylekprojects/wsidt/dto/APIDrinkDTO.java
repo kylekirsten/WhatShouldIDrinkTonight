@@ -332,14 +332,23 @@ public class APIDrinkDTO {
 	public Drink convertToDrink() {
 		Drink drink = new Drink();
 		drink.setId(this.idDrink);
-		drink.setAlcoholic(this.strAlcoholic == "Alcoholic");
+		if(this.strAlcoholic.equals("Alcoholic")) {
+			drink.setAlcoholic(true);
+		} else {
+			drink.setAlcoholic(false);
+		}
 		drink.setCategory(this.strCategory);
 		drink.setName(this.strDrink);
+		drink.setGlass(this.strGlass);
 		
 		//Set drinkInfo obj
 		DrinkInfo drinkInfo = new DrinkInfo();
 		drinkInfo.setAlternateName(this.strDrinkAlternate);
-		drinkInfo.setCreativeCommons(this.strCreativeCommonsConfirmed != "No");
+		if(this.strCreativeCommonsConfirmed.equals("No")) {
+			drinkInfo.setCreativeCommons(false);
+		} else {
+			drinkInfo.setCreativeCommons(true);
+		}
 		drinkInfo.setIba(this.strlBA);
 		drinkInfo.setTags(this.strTags);
 		drinkInfo.setThumbnail(this.strDrinkThumb);
